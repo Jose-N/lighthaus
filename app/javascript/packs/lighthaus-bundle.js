@@ -1,5 +1,16 @@
 import ReactOnRails from 'react-on-rails';
 
-import Main from '../bundles/main.js';
+import NavBar from '../bundles/navbar/navbar.js';
 
-ReactOnRails.register({Main});
+import Main from '../bundles/searches/main.js';
+import Youtube from '../bundles/searches/youtube.js';
+import Twitch from '../bundles/searches/twitch.js';
+import Twitter from '../bundles/searches/twitter.js';
+
+ReactOnRails.register({
+  NavBar,
+  Main,
+  Youtube,
+  Twitch,
+  Twitter
+});

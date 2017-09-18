@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'lighthaus-bundle.js'%>
   </head>
 
+  <%= react_component("NavBar", props: {}, prerender: false) %>
+
   <body>
     <%= yield %>
   </body>
