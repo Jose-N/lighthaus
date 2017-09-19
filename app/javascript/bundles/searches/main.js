@@ -40,7 +40,6 @@ class Main extends Component {
   render() {
     let displayResults;
     if (this.state.results != null) {
-      debugger
       let prefix = this.state.results.items[0]
       displayResults = < YoutubeDisplay
           title={prefix.snippet.title}
