@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'react_on_rails', '9.0.0'
 gem 'webpacker', '~> 3.0'
+gem 'httparty'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -24,6 +26,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'coveralls'
+  gem 'dotenv-rails'
 end
 
 group :production do

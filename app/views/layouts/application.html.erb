@@ -6,7 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'lighthaus-bundle.js'%>
   </head>
+
+  <%= react_component("NavBar", props: {}, prerender: false) %>
 
   <body>
     <%= yield %>
