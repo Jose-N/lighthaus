@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'searches#index'
 
   resources :searches, only: [:index]
-  get '/youtube', to:'searches#youtube'
-  get '/twitch', to:'searches#twitch'
-  get '/twitter', to:'searches#twitter'
+  resources :youtube, only: [:index]
+  resources :twitter, only: [:index]
+  resources :twitch, only: [:index]
+
+  post 'youtube/result/:channel_id', to:'youtube#result'
 end
