@@ -17,4 +17,12 @@ class YoutubeController < ApplicationController
     key = ENV['YOUTUBE_API']
     @response = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=#{channel_id}&maxResults=25&publishedAfter=#{lastweek}&publishedBefore=#{today}&fields=items(id%2FvideoId%2Csnippet(description%2CpublishedAt%2Cthumbnails(default%2Chigh)%2Ctitle))&key=#{key}").body
   end
+
+  def video
+    video_id = params[:video_id]
+    key = ENV['YOUTUBE_API']
+
+    response = HTTParty.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=#{video_id}+&fields=items(contentDetails(definition%2Cdimension%2Cduration)%2CfileDetails%2FdurationMs%2Cid%2Csnippet%2Fdescription%2Cstatistics)&key=#{key}")
+    render json: response
+  end
 end
