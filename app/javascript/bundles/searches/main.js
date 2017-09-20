@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import YoutubeDisplay from '../youtube/display';
+import YoutubeDisplay from '../youtube/resultDisplay.js';
 
 class Main extends Component {
   constructor(props) {
@@ -48,12 +48,13 @@ class Main extends Component {
           viewCount={prefix.statistics.viewCount}
           subscriberCount={prefix.statistics.subscriberCount}
           videoCount={prefix.statistics.videoCount}
+          channelId={this.state.youtuber}
         />
     }
 
   return (
     <div className="Main">
-      <p className="tagline">Some bullshit tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
+      <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
       <hr/>
       <form id='main-seach-form' onSubmit={this.handleSubmit}> 
         <input type='text'
