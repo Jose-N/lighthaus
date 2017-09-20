@@ -4,7 +4,7 @@ const YoutubeDisplay = props => {
   return (
     <div className='YoutubeDisplay'>
       <div className="title-box">
-        <h1><a href={`/youtube/display/${props.title}`}>{props.title}</a></h1>
+        <h1><a href={`/youtube/display/${props.channelId}`}>{props.title}</a></h1>
         <img src={props.thumbnail} />
       </div>
       <div className="info-box">

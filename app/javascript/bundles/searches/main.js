@@ -48,6 +48,7 @@ class Main extends Component {
           viewCount={prefix.statistics.viewCount}
           subscriberCount={prefix.statistics.subscriberCount}
           videoCount={prefix.statistics.videoCount}
+          channelId={this.state.youtuber}
         />
     }
 
