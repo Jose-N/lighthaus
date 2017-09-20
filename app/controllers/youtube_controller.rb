@@ -6,4 +6,7 @@ class YoutubeController < ApplicationController
 
     render json: response 
   end
+
+  def display
+  end
 end

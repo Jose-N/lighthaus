@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :twitch, only: [:index]
 
   post 'youtube/result/:channel_id', to:'youtube#result'
+  get 'youtube/display/:channel_id', to:'youtube#display'
 end
