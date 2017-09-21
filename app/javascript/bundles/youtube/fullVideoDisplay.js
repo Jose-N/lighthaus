@@ -13,6 +13,7 @@ const FullVideoDisplay = props => {
       <p>Like Count: {props.likeCount}</p>
       <p>Dislike Count: {props.dislikeCount}</p>
       <p>Comment Count: {props.commentCount}</p>
+      <a href={`/youtube/comments/${props.id}`}><p>Comment Analysis</p></a>
     </div>
   );
 }; 
