@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post 'youtube/result/:channel_id', to:'youtube#result'
   get 'youtube/display/:channel_id', to:'youtube#display'
   get 'youtube/video/:video_id', to:'youtube#video'
+  get 'youtube/comments/:video_id', to:'youtube#comments'
 end
