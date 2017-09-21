@@ -14,7 +14,7 @@ class Main extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    fetch(`/youtube/result/${this.state.youtuber}`, {method: "POST", body :JSON.stringify()})
+    fetch(`/youtube/result/${this.state.youtuber}`, {method: "POST", body :JSON.stringify(), credentials: same-origin})
       .then(response => {
         if (response.ok) {
           console.log('response ok')
