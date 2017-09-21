@@ -8,10 +8,10 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'lighthaus-bundle.js'%>
   </head>
-
-  <%= react_component("NavBar", props: {}, prerender: false) %>
-
   <body>
+    <%= react_component("NavBar", props: {signed_in: user_signed_in?, user: current_user}, prerender: false) %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
