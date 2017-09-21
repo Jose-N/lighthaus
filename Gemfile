@@ -10,6 +10,7 @@ gem 'dotenv-rails'
 gem 'react_on_rails', '9.0.0'
 gem 'webpacker', '~> 3.0'
 gem 'httparty'
+gem 'devise'
 
 group :development do
   gem 'listen', '~> 3.0.5'
