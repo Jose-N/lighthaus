@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CommentComponent = props => {
+const YoutubeVideoCommentTile = props => {
   return (
-    <div className='CommentComponent'>
+    <div className='youtube-video-comment-tile'>
       <img src={props.profile} />
       <h4>{props.name}</h4>
       <p>{props.text}</p>
@@ -12,4 +12,4 @@ const CommentComponent = props => {
   );
 }; 
 
-export default CommentComponent;
+export default YoutubeVideoCommentTile;

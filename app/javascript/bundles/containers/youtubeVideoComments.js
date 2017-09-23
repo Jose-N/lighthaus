@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import CommentComponent from './commentComponent.js';
+import YoutubeVideoCommentTile from '../components/youtubeVideoCommentTile.js';
 
-class CommentContainer extends Component {
+class YoutubeVideoComments extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -13,7 +13,7 @@ class CommentContainer extends Component {
   let commentFragments = this.props.items.map(commentInfo => {
     let prefix = commentInfo.snippet.topLevelComment.snippet
     return(
-      < CommentComponent
+      < YoutubeVideoCommentTile
         profile={prefix.authorProfileImageUrl}
         name={prefix.authorDisplayName}
         text={prefix.textOriginal}
@@ -24,11 +24,11 @@ class CommentContainer extends Component {
   })
 
   return (
-    <div className="CommentContainer">
+    <div className="youtube-video-comments">
       <h1>Comments</h1>
       {commentFragments}
     </div>
   )
   }
 }
-export default CommentContainer;
+export default YoutubeVideoComments;

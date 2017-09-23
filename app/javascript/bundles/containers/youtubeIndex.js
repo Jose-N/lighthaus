@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import YoutubeDisplay from './resultDisplay.js';
+import YoutubeChannelTile from '../components/youtubeChannelTile.js'
 
 class YoutubeIndex extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class YoutubeIndex extends Component {
     let displayResults;
     if (this.state.results != null) {
       let prefix = this.state.results.items[0]
-      displayResults = < YoutubeDisplay
+      displayResults = < YoutubeChannelTile
           title={prefix.snippet.title}
           thumbnail={prefix.snippet.thumbnails.default.url}
           description={prefix.snippet.localized.description}
@@ -53,7 +53,7 @@ class YoutubeIndex extends Component {
     }
 
   return (
-    <div className="YoutubeIndex">
+    <div className="youtube-index">
       <p className="tagline">Some cool tag line about Youtube and how you can grab data from it. Maybe throw in something about how awesome the app is.</p>
       <hr/>
       <form id='youtube-seach-form' onSubmit={this.handleSubmit}> 

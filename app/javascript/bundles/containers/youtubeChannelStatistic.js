@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import VideoDisplay from './videoDisplay';
-import FullVideoDisplay from './fullVideoDisplay.js';
+import YoutubeVideoTile from '../components/youtubeVideoTile.js';
+import YoutubeVideoStatisticsTile from '../components/youtubeVideoStatisticsTile.js';
 
-class channelDisplay extends Component {
+class YoutubeChannelStatistics extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -33,7 +33,7 @@ class channelDisplay extends Component {
   let videos = this.props.items.map(video => {
     if (this.state.selectedVideo == video.id.videoId) {
       return(
-      < FullVideoDisplay
+      < YoutubeVideoStatisticsTile
           key={video.id.videoId}
           id={video.id.videoId}
           img={video.snippet.thumbnails.default.url}
@@ -48,7 +48,7 @@ class channelDisplay extends Component {
       )
     }else {
       return(
-        < VideoDisplay
+        < YoutubeVideoTile
           key={video.id.videoId}
           id={video.id.videoId}
           img={video.snippet.thumbnails.default.url}
@@ -61,11 +61,11 @@ class channelDisplay extends Component {
     }
   })
   return (
-    <div className="channelDisplay">
+    <div className="youtube-channel-statistics">
       <h1>Latest Videos</h1>
       {videos}
     </div>
   )
   }
 }
-export default channelDisplay;
+export default YoutubeChannelStatistics;
