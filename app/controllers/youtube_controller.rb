@@ -36,5 +36,14 @@ class YoutubeController < ApplicationController
 
     @response = HTTParty.get("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=100&order=time&videoId=#{video_id}&fields=items(snippet(topLevelComment(snippet(authorDisplayName%2CauthorProfileImageUrl%2ClikeCount%2CpublishedAt%2CtextDisplay%2CtextOriginal%2CupdatedAt))))%2CnextPageToken%2CtokenPagination&key=#{key}").body
   end
+
+  def videochart
+    video_ids = params[:video_ids]
+    key = ENV['YOUTUBE_API']
+
+    response = HTTParty.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=#{video_ids}&fields=items(snippet%2Ftitle%2Cstatistics)&key=#{key}").body
+
+    render json: response
+  end
 end
 

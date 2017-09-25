@@ -25,6 +25,7 @@ class YoutubeVideoComments extends Component {
 
   return (
     <div className="youtube-video-comments">
+      comment word bubble here
       <h1>Comments</h1>
       {commentFragments}
     </div>

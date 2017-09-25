@@ -3,6 +3,7 @@ import React from 'react';
 const YoutubeVideoStatisticsTile = props => {
   return (
     <div className='youtube-video-statistics-tile'>
+      <h4>{props.order}</h4>
       <img src={props.img} />
       <h3>{props.title}</h3>
       <p>{props.description}</p>
