@@ -23,7 +23,7 @@ const PieChart = props => {
     .value(d => d.value);
 
   const data = props.data
-  console.log(props.data)
+
   return (
     <div className='pie-chart'>
       <h1>Views Pie Chart</h1>
@@ -35,8 +35,6 @@ const PieChart = props => {
               <text
                 dy=".10em"
                 transform={`translate(${label.centroid(d)})`}
-                textAlign="center"
-                textBaseAlign="bottom"
               >
                 {i + 1}
               </text>
