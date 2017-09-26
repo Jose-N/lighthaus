@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class Twitter extends Component {
+class TwitterIndex extends Component {
   render() {
 
   return (
-    <div className="Twitter">
+    <div className="twitter-index">
       Twitter    
     </div>
   )
   }
 }
-export default Twitter;
+export default TwitterIndex;

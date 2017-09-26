@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import YoutubeDisplay from '../youtube/resultDisplay.js';
+import YoutubeChannelTile from '../components/youtubeChannelTile.js'
 
-class Main extends Component {
+class Index extends Component {
   constructor(props) {
     super(props);
     this.state={
@@ -14,7 +14,7 @@ class Main extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    fetch(`/youtube/result/${this.state.youtuber}`, {method: "POST", body :JSON.stringify(), credentials: same-origin})
+    fetch(`/youtube/result/${this.state.youtuber}`, {method: "POST", body :JSON.stringify()})
       .then(response => {
         if (response.ok) {
           console.log('response ok')
@@ -41,7 +41,7 @@ class Main extends Component {
     let displayResults;
     if (this.state.results != null) {
       let prefix = this.state.results.items[0]
-      displayResults = < YoutubeDisplay
+      displayResults = < YoutubeChannelTile
           title={prefix.snippet.title}
           thumbnail={prefix.snippet.thumbnails.default.url}
           description={prefix.snippet.localized.description}
@@ -53,7 +53,7 @@ class Main extends Component {
     }
 
   return (
-    <div className="Main">
+    <div className="index">
       <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
       <hr/>
       <form id='main-seach-form' onSubmit={this.handleSubmit}> 
@@ -69,4 +69,4 @@ class Main extends Component {
   )
   }
 }
-export default Main;
+export default Index;

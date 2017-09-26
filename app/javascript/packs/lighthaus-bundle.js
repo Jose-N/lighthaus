@@ -1,23 +1,15 @@
 import ReactOnRails from 'react-on-rails';
 
-import NavBar from '../bundles/navbar/navbar.js';
-
-import Main from '../bundles/searches/main.js';
-import Youtube from '../bundles/searches/youtube.js';
-import ChannelDisplay from '../bundles/youtube/channelDisplay.js';
-import CommentContainer from '../bundles/youtube/commentsContainer.js';
-import YoutubeIndex from '../bundles/youtube/index.js';
-import Twitch from '../bundles/searches/twitch.js';
-import Twitter from '../bundles/searches/twitter.js';
-
+import NavBar from '../bundles/components/navbar.js';
+import Index from '../bundles/containers/index.js';
+import YoutubeIndex from '../bundles/containers/youtubeIndex.js';
+import YoutubeChannelStatistics from '../bundles/containers/youtubeChannelStatistic.js';
+import YoutubeVideoComments from '../bundles/containers/youtubeVideoComments.js';
 
 ReactOnRails.register({
   NavBar,
-  Main,
-  Youtube,
+  Index,
   YoutubeIndex,
-  ChannelDisplay,
-  CommentContainer,
-  Twitch,
-  Twitter,
+  YoutubeChannelStatistics,
+  YoutubeVideoComments
 });

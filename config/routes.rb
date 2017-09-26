@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'youtube/display/:channel_id', to:'youtube#display'
   get 'youtube/video/:video_id', to:'youtube#video'
   get 'youtube/comments/:video_id', to:'youtube#comments'
+  get 'youtube/charts/videos/:video_ids', to:'youtube#videochart'
 end

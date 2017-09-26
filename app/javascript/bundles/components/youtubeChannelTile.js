@@ -1,8 +1,8 @@
 import React from 'react';
 
-const YoutubeDisplay = props => {
+const YoutubeChannelTile = props => {
   return (
-    <div className='YoutubeDisplay'>
+    <div className='youtube-channel-tile'>
       <div className="title-box">
         <h1><a href={`/youtube/display/${props.channelId}`}>{props.title}</a></h1>
         <img src={props.thumbnail} />
@@ -17,4 +17,4 @@ const YoutubeDisplay = props => {
   );
 }; 
 
-export default YoutubeDisplay;
+export default YoutubeChannelTile;
