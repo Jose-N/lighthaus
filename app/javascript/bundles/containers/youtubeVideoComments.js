@@ -8,6 +8,7 @@ class YoutubeVideoComments extends Component {
       barData: []
     }
     this.sortCommentsArray = this.sortCommentsArray.bind(this)
+    this.cleanGarbageWords = this.cleanGarbageWords.bind(this)
   }
 
   componentDidMount() {
@@ -17,9 +18,24 @@ class YoutubeVideoComments extends Component {
     })
     comments = comments.replace(/\W/g, ' ')
     let commentsArray = comments.split(" ")
-    let garbage = ["", "the", "a", "I"]
     let data = this.sortCommentsArray(commentsArray)
-    this.setState({barData: data})
+    this.cleanGarbageWords(data)
+  }
+
+  cleanGarbageWords(arr) {
+    let garbage = ["", "the", "a", "i", "and", "it", "is", "to", "this", "in", "of", "that", "you", "the", "with", "me", "for", "I"]
+    for (let i = arr[0].length - 1; i--;) {
+      garbage.map(garbo => {
+        if (garbo === arr[0][i].toLowerCase() || garbo === arr[0][i]) {
+          console.log(arr[0][i])
+          console.log(i)
+          arr[0].splice(i, 1)
+          arr[1].splice(i, 1)
+        }
+      })
+    }
+    console.log(arr[0])
+    this.setState({barData: arr})
   }
 
   sortCommentsArray(arr) {

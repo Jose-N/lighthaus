@@ -38,7 +38,7 @@ class CommentBarChart extends Component {
           textColor="#484848"
           fontSize="12px"
           title="Treemap"
-          hoverAnimation={false}
+          hoverAnimation={true}
       />
     }
 
