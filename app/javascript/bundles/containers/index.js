@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import YoutubeChannelTile from '../components/youtubeChannelTile.js'
+import { Jumbotron, Form, FormGroup,FormControl,  ControlLabel, Button } from 'react-bootstrap';
 
 class Index extends Component {
   constructor(props) {
@@ -54,16 +55,19 @@ class Index extends Component {
 
   return (
     <div className="index">
-      <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
+      <Jumbotron>
+        <h1>LightHaus</h1>
+        <p>Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
+      </Jumbotron>
       <hr/>
-      <form id='main-seach-form' onSubmit={this.handleSubmit}> 
-        <input type='text'
-           name='youtuber'
-           placeholder="Enter Youtuber's Channel"
-           onChange={this.handleChange}
-         />
-        <input type='submit' value='Submit' />
-      </form>
+      <Form inline onSubmit={this.handleSubmit}>
+        <FormGroup controlId="youtuber" bsSize="lg">
+          <FormControl type="text" name="youtuber"  placeholder="Youtube Channel Id" onChange={this.handleChange}/>
+        </FormGroup>
+        <Button type="submit" bsSize="lg" onClick={this.handleSubmitd}>
+          Submit
+        </Button>
+      </Form>
       {displayResults}
     </div>
   )

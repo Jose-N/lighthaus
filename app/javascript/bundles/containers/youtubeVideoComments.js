@@ -23,7 +23,7 @@ class YoutubeVideoComments extends Component {
   }
 
   cleanGarbageWords(arr) {
-    let garbage = ["", "the", "a", "i", "and", "it", "is", "to", "this", "in", "of", "that", "you", "the", "with", "me", "for", "I"]
+    let garbage = ["", "the", "a", "i", "and", "it", "is", "to", "this", "in", "of", "that", "you", "the", "with", "me", "for", "I", "s", "t"]
     for (let i = arr[0].length - 1; i--;) {
       garbage.map(garbo => {
         if (garbo === arr[0][i].toLowerCase() || garbo === arr[0][i]) {

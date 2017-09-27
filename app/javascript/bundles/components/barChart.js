@@ -44,7 +44,7 @@ class CommentBarChart extends Component {
 
   return (
     <div className="comment-bar-chart">
-      <h1>bar chart goes here</h1>
+      <h1>Tree Map of Comments</h1>
       {bar}
     </div>
   )
