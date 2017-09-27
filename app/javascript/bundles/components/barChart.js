@@ -11,7 +11,8 @@ class CommentBarChart extends Component {
     this.formatCommentsArray = this.formatCommentsArray.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidMount() {
+    debugger
     let formattedData = this.formatCommentsArray(nextProps.data)
     this.setState({data: formattedData})
   }
@@ -33,18 +34,17 @@ class CommentBarChart extends Component {
       bar = 
         <Treemap
           data={this.state.data}
-          width={2000}
-          height={2000}
+          width={1000}
+          height={5000}
           textColor="#484848"
           fontSize="12px"
-          title="Treemap"
+          title="Comments"
           hoverAnimation={true}
       />
-    }
+    }else { bar = <h5>Something went wrong with making the tree</h5>}
 
   return (
     <div className="comment-bar-chart">
-      <h1>Tree Map of Comments</h1>
       {bar}
     </div>
   )

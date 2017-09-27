@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import YoutubeVideoTile from '../components/youtubeVideoTile.js';
 import YoutubeVideoStatisticsTile from '../components/youtubeVideoStatisticsTile.js';
 import PieChart from '../components/piechart.js';
+import { Grid, Row, PageHeader } from 'react-bootstrap';
 
 class YoutubeChannelStatistics extends Component {
   constructor(props) {
@@ -15,20 +16,26 @@ class YoutubeChannelStatistics extends Component {
   }
 
   selectVideo(id) {
-    fetch(`/youtube/video/${id}`)
-      .then(response => {
-        if (response.ok) {
-          console.log('response ok')
-          return response.json()
-        }else {
-          let error = new Error()
-          throw(error)
-        }
-      })
-      .then( body => {
-        this.setState({selectedVideo: id, videoStats:  body})
-      })
-      .catch(console.log('error'))
+      console.log(this.state.selectedVideo)
+      console.log(id)
+      if (this.state.selectedVideo != id) {
+      fetch(`/youtube/video/${id}`)
+        .then(response => {
+          if (response.ok) {
+            console.log('response ok')
+            return response.json()
+          }else {
+            let error = new Error()
+            throw(error)
+          }
+        })
+        .then( body => {
+          this.setState({selectedVideo: id, videoStats:  body})
+        })
+        .catch(console.log('error'))
+    }else {
+      this.setState({selectedVideo: null, videoStats: null})
+    }
   }
 
   componentDidMount() {
@@ -76,6 +83,7 @@ class YoutubeChannelStatistics extends Component {
           likeCount={this.state.videoStats.items[0].statistics.likeCount}
           dislikeCount={this.state.videoStats.items[0].statistics.dislikeCount}
           commentCount={this.state.videoStats.items[0].statistics.commentCount}
+          selectVideo={this.selectVideo}
         />
       )
     }else {
@@ -94,11 +102,13 @@ class YoutubeChannelStatistics extends Component {
     }
   })
   return (
-    <div className="youtube-channel-statistics">
-      <h1>Latest Videos</h1>
+    <Grid>
+    <Row className="youtube-channel-statistics">
+      <PageHeader>Latest Videos <small>Last 3 Weeks</small></PageHeader>
       < PieChart data={this.state.data}/>
       {videos}
-    </div>
+    </Row>
+    </Grid>
   )
   }
 }

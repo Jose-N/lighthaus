@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
 import YoutubeVideoCommentTile from '../components/youtubeVideoCommentTile.js';
 import CommentBarChart from '../components/barChart.js';
+import { Grid, Row, PageHeader } from 'react-bootstrap';
+
 class YoutubeVideoComments extends Component {
   constructor(props) {
     super(props);
     this.state={
-      barData: []
+      barData: [],
+      showTree: false,
+      showBar: false
     }
     this.sortCommentsArray = this.sortCommentsArray.bind(this)
     this.cleanGarbageWords = this.cleanGarbageWords.bind(this)
+    this.toggleTreeMap = this.toggleTreeMap.bind(this)
+    this.toggleBarChart = this.toggleBarChart.bind(this)
   }
 
   componentDidMount() {
@@ -55,28 +61,52 @@ class YoutubeVideoComments extends Component {
     return [a, b];
   }
 
+  toggleTreeMap() {
+    this.setState({showTree: !this.state.showTree})
+  }
+
+  toggleBarChart() {
+    this.setState({showBar: !this.state.showBar})
+  }
+
   render() {
 
-  let commentFragments = this.props.items.map((commentInfo, i) => {
-    let prefix = commentInfo.snippet.topLevelComment.snippet
-    return(
-      < YoutubeVideoCommentTile
-        key={i}
-        profile={prefix.authorProfileImageUrl}
-        name={prefix.authorDisplayName}
-        text={prefix.textOriginal}
-        likeCount={prefix.likeCount}
-        published={prefix.publishedAt}
-      />
-    )
-  })
+    let commentFragments = this.props.items.map((commentInfo, i) => {
+      let prefix = commentInfo.snippet.topLevelComment.snippet
+      return(
+        < YoutubeVideoCommentTile
+          key={i}
+          profile={prefix.authorProfileImageUrl}
+          name={prefix.authorDisplayName}
+          text={prefix.textOriginal}
+          likeCount={prefix.likeCount}
+          published={prefix.publishedAt}
+        />
+      )
+    })
+
+    let treeMap;
+    if (this.state.showTree === true) {
+      treeMap = <CommentBarChart data={this.state.barData}/>
+    }
+
+    let barChart;
+    if (this.state.showBar === true) {
+      barChart = <h1>Bar Chart Goes Here!</h1> 
+    }
 
   return (
-    <div className="youtube-video-comments">
-      <CommentBarChart data={this.state.barData}/>
-      <h1>Comments</h1>
-      {commentFragments}
-    </div>
+    <Grid>
+      <Row className="youtube-video-comments">
+        <PageHeader>Latest 100 Comments <small>frequency of unique words</small></PageHeader>
+        <h3 onClick={this.toggleTreeMap}>Treemap</h3>
+        {treeMap}
+        <h3 onClick={this.toggleBarChart}>BarChart</h3>
+        {barChart}
+        <h1>Comments</h1>
+        {commentFragments}
+      </Row>
+    </Grid>
   )
   }
 }
