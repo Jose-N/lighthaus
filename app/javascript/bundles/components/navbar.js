@@ -17,8 +17,17 @@ const NavBar = props => {
           <li role="presentation"><a href="/twitter">Twitter</a></li>
         </Nav>
         <Nav pullRight>
-          <li role="presentation"><a href="/users/sign_in">Login</a></li>
-          <li role="presentation"><a href="/users/sign_up">Register</a></li>
+          {props.signed_in ?(
+            <div>
+            <li role="presentation"><a href="/users/edit">{props.user.first_name}</a></li>
+            <li role="presentation"><a data-confirm="Are you sure" data-method="delete" href="/users/sign_out" rel="nofollow">Logout</a></li>
+            </div>
+          ) : (
+            <div>
+            <li role="presentation"><a href="/users/sign_in">Login</a></li>
+            <li role="presentation"><a href="/users/sign_up">Register</a></li>
+            </div>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

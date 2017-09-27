@@ -11,9 +11,8 @@ class CommentBarChart extends Component {
     this.formatCommentsArray = this.formatCommentsArray.bind(this)
   }
 
-  componentDidMount() {
-    debugger
-    let formattedData = this.formatCommentsArray(nextProps.data)
+  componentWillMount() {
+    let formattedData = this.formatCommentsArray(this.props.data)
     this.setState({data: formattedData})
   }
 
