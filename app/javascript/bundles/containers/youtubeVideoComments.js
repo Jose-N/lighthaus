@@ -29,16 +29,21 @@ class YoutubeVideoComments extends Component {
   }
 
   cleanGarbageWords(arr) {
-    let garbage = []
+    let articles = ["this", "they", "them"]
     for (let i = arr[0].length - 1; i--;) {
-      garbage.map(garbo => {
         if ( arr[0][i].length <= 3) {
           console.log(arr[0][i].length)
           console.log(i)
           arr[0].splice(i, 1)
           arr[1].splice(i, 1)
+        } else {
+          articles.map(article => {
+            if (arr[0][i] === article) {
+              arr[0].splice(i, 1)
+              arr[1].splice(i, 1)
+            }
+          })
         }
-      })
     }
     console.log(arr[0])
     this.setState({barData: arr})

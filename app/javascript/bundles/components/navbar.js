@@ -19,7 +19,7 @@ const NavBar = props => {
         <Nav pullRight>
           {props.signed_in ?(
             <div>
-            <li role="presentation"><a href="/users/edit">{props.user.first_name}</a></li>
+            <li role="presentation"><a href="/data">{props.user.first_name}</a></li>
             <li role="presentation"><a data-confirm="Are you sure" data-method="delete" href="/users/sign_out" rel="nofollow">Logout</a></li>
             </div>
           ) : (

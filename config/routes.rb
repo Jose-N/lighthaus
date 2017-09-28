@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'youtube/video/:video_id', to:'youtube#video'
   get 'youtube/comments/:video_id', to:'youtube#comments'
   get 'youtube/charts/videos/:video_ids', to:'youtube#videochart'
+
+  resources :data, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end
