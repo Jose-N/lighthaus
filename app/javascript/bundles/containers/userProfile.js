@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row } from 'react-bootstrap';
+import SaveTile from '../components/saveTile.js';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -9,11 +10,21 @@ class UserProfile extends Component {
   }
 
   render() {
-    let savesFragment = this.props.saves.map(save => {
-      return(
-        <h4><a href={`/data/${save.id}`}>{save.title}</a></h4>
-      )
-    })
+    let savesFragment
+    if (this.props.saves.length > 0) {
+      savesFragment = this.props.saves.map((save, index) => {
+        return(
+          <SaveTile
+            key={index}
+            saveId={save.id}
+            title={save.title}
+            description={save.description}
+          />
+        )
+      })
+    }else {
+      savesFragment = <p>You Have No Saves</p>
+    }
 
   return (
     <Grid>

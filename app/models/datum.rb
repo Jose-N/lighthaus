@@ -3,5 +3,6 @@ class Datum < ApplicationRecord
   has_many :users, through: :user_data
 
   validates :title, presence: true
-  validates :display_data, presence: true
+  validates :words, presence: true
+  validates :word_count, presence: true
 end

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import YoutubeVideoCommentTile from '../components/youtubeVideoCommentTile.js';
 import CommentBarChart from '../components/barChart.js';
-import { Grid, Row, PageHeader } from 'react-bootstrap';
+import { Grid, Row, PageHeader, Button, Modal } from 'react-bootstrap';
 
 class YoutubeVideoComments extends Component {
   constructor(props) {
@@ -9,12 +9,15 @@ class YoutubeVideoComments extends Component {
     this.state={
       barData: [],
       showTree: false,
-      showBar: false
+      showBar: false,
+      showModal: false
     }
     this.sortCommentsArray = this.sortCommentsArray.bind(this)
     this.cleanGarbageWords = this.cleanGarbageWords.bind(this)
     this.toggleTreeMap = this.toggleTreeMap.bind(this)
     this.toggleBarChart = this.toggleBarChart.bind(this)
+    this.open = this.open.bind(this)
+    this.close = this.close.bind(this)
   }
 
   componentDidMount() {
@@ -29,7 +32,7 @@ class YoutubeVideoComments extends Component {
   }
 
   cleanGarbageWords(arr) {
-    let articles = ["this", "they", "them"]
+    let articles = ["this", "they", "them", "that"]
     for (let i = arr[0].length - 1; i--;) {
         if ( arr[0][i].length <= 3) {
           console.log(arr[0][i].length)
@@ -74,6 +77,14 @@ class YoutubeVideoComments extends Component {
     this.setState({showBar: !this.state.showBar})
   }
 
+  close() {
+    this.setState({showModal: false})
+  }
+
+  open() {
+    this.setState({showModal: true})
+  }
+
   render() {
 
     let commentFragments = this.props.items.map((commentInfo, i) => {
@@ -105,13 +116,20 @@ class YoutubeVideoComments extends Component {
       <Row className="youtube-video-comments">
         <PageHeader>Latest 100 Comments <small>frequency of unique words</small></PageHeader>
         <h3 onClick={this.toggleTreeMap}>Treemap</h3>
+        <Button bsStyle="success" onClick={this.open}>Save Graph</Button>
         {treeMap}
-        <h3 onClick={this.toggleBarChart}>BarChart</h3>
-        {barChart}
         <h1>Comments</h1>
         {commentFragments}
       </Row>
+      <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal.Header closeButton>
+          <Modal.Title>Save This Chart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        </Modal.Body>
+      </Modal>
     </Grid>
+
   )
   }
 }

@@ -1,6 +1,1 @@
-<h1><%= @save.title %></h1>
-
-<h4>Description: <%= @save.description %></h4>
-
-<h1>Heres your fucking chart</h1>
-<p>WUBBA LUBBA DUBB</p>
+<%= react_component("UserSave", props: {save: @save}, prerender: false) %>
