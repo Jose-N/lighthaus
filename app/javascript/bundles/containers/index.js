@@ -38,6 +38,7 @@ class Index extends Component {
     let value = event.target.value
     this.setState({[stateName]: value})
   }
+
   render() {
     let displayResults;
     if (this.state.results != null) {

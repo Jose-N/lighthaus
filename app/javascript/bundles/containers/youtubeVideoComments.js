@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import { Grid, Row, PageHeader, Button, Modal } from 'react-bootstrap';
 import YoutubeVideoCommentTile from '../components/youtubeVideoCommentTile.js';
 import CommentBarChart from '../components/barChart.js';
-import { Grid, Row, PageHeader, Button, Modal } from 'react-bootstrap';
+import SaveTreeMap from '../containers/saveTreeMap.js';
 
 class YoutubeVideoComments extends Component {
   constructor(props) {
@@ -126,6 +127,7 @@ class YoutubeVideoComments extends Component {
           <Modal.Title>Save This Chart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          < SaveTreeMap data={this.state.barData}/>
         </Modal.Body>
       </Modal>
     </Grid>
