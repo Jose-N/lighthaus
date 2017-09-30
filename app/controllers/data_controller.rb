@@ -38,9 +38,8 @@ class DataController < ApplicationController
     data = JSON.parse(request.body.read)
     save = Datum.find(data["id"])
 
-    if save.update( title: data["title"], description: data["description"])
-      redirect_to save
-    end
+    save.update( title: data["title"], description: data["description"])
+    render json: save
   end
 
   def destroy
