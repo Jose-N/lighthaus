@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Grid, Row, Modal } from 'react-bootstrap';
 import SaveTile from '../components/saveTile.js';
 import SaveTreeMap from '../containers/saveTreeMap.js';
+import EditTreeMap from '../containers/editTreeMap.js';
 
 class UserProfile extends Component {
   constructor(props) {

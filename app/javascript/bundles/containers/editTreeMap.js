@@ -67,7 +67,7 @@ class EditTreeMap extends Component {
           <FormControl
             type="text"
             name="title"
-            value=
+            value="will be orginal title"
             onChange={this.handleChange}
           />
 
@@ -75,7 +75,7 @@ class EditTreeMap extends Component {
           <FormControl
             componentClass="textarea"
             name="description"
-            value=
+            value="will be orginial desc"
             onChange={this.handleChange}
           />
         </FormGroup>
