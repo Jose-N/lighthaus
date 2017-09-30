@@ -61,12 +61,15 @@ RSpec.configure do |config|
 end
 require "capybara/rails"
 require "valid_attribute"
+require 'capybara-screenshot/rspec'
 
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 Capybara.javascript_driver = :chrome
+
+Capybara::Screenshot.prune_strategy = { keep: 10 }
 
 Capybara.configure do |config|
   config.default_max_wait_time = 10 # seconds
@@ -79,5 +82,7 @@ RSpec.configure do |config|
   ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
 
   config.include FactoryGirl::Syntax::Methods
+   config.before(:each, type: :feature) do
+   end
 end
 
