@@ -37,6 +37,10 @@ class DataController < ApplicationController
   def update
   end
 
-  def destory
+  def destroy
+    @save = Datum.find(params[:id])
+    @save.destroy
+
+    redirect_to data_path
   end
 end

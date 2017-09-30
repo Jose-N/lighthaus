@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
-import { Grid, Row } from 'react-bootstrap';
+import { Grid, Row, Modal } from 'react-bootstrap';
 import SaveTile from '../components/saveTile.js';
+import SaveTreeMap from '../containers/saveTreeMap.js';
 
 class UserProfile extends Component {
   constructor(props) {
     super(props);
     this.state={
+      showModal: false
     }
+    this.open = this.open.bind(this)
+    this.close = this.close.bind(this)
+  }
+
+  close() {
+    this.setState({showModal: false})
+  }
+
+  open() {
+    this.setState({showModal: true})
   }
 
   render() {
@@ -19,6 +31,7 @@ class UserProfile extends Component {
             saveId={save.id}
             title={save.title}
             description={save.description}
+            open={this.open}
           />
         )
       })
@@ -35,6 +48,15 @@ class UserProfile extends Component {
         <h1>Here is a list of your saved graphs</h1>
         {savesFragment}
       </Row>
+      <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit This Save</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <EditTreeMap
+           />
+        </Modal.Body>
+      </Modal>
     </Grid>
   )
   }
