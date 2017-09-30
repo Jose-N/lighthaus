@@ -5,9 +5,8 @@ class EditTreeMap extends Component {
   constructor(props) {
     super(props);
     this.state={
-      title: "",
-      description: "",
-      chart_data: this.props.data
+      title: this.props.title,
+      description: this.props.description,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,19 +24,18 @@ class EditTreeMap extends Component {
   createPayload(event) {
     event.preventDefault()
     let payload = {
+      id: this.props.id,
       title: this.state.title,
-      description: this.state.description,
-      words: this.state.chart_data[0],
-      word_count: this.state.chart_data[1]
+      description: this.state.description
     }
     this.handleSubmit(payload)
   }
 
   handleSubmit(payload) {
     event.preventDefault()
-    fetch("/data",
+    fetch(`/data/${this.props.id}`,
       {
-        method: "POST",
+        method: "PUT",
         credentials: "same-origin",
         body : JSON.stringify(payload),
       })
@@ -67,7 +65,7 @@ class EditTreeMap extends Component {
           <FormControl
             type="text"
             name="title"
-            value="will be orginal title"
+            value={this.state.title}
             onChange={this.handleChange}
           />
 
@@ -75,7 +73,7 @@ class EditTreeMap extends Component {
           <FormControl
             componentClass="textarea"
             name="description"
-            value="will be orginial desc"
+            value={this.state.description}
             onChange={this.handleChange}
           />
         </FormGroup>
