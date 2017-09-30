@@ -7,6 +7,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'lighthaus-bundle.js'%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
   </head>
   <body>
     <%= react_component("NavBar", props: {signed_in: user_signed_in?, user: current_user}, prerender: false) %>

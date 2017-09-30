@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import YoutubeChannelTile from '../components/youtubeChannelTile.js'
+import { Jumbotron, Form, FormGroup,FormControl, ControlLabel, Button, Grid, Row } from 'react-bootstrap';
 
 class YoutubeIndex extends Component {
   constructor(props) {
@@ -53,19 +54,26 @@ class YoutubeIndex extends Component {
     }
 
   return (
-    <div className="youtube-index">
-      <p className="tagline">Some cool tag line about Youtube and how you can grab data from it. Maybe throw in something about how awesome the app is.</p>
-      <hr/>
-      <form id='youtube-seach-form' onSubmit={this.handleSubmit}> 
-        <input type='text'
-           name='youtuber'
-           placeholder="Enter Youtuber's Channel"
-           onChange={this.handleChange}
-         />
-        <input type='submit' value='Submit' />
-      </form>
-      {displayResults}
-    </div>
+    <Grid>
+      <Row className="index">
+        <Jumbotron>
+          <h1 className="title">Youtube</h1>
+          <p className="tagline">Some cool tag line about Youtube and how you can grab data from it. Maybe throw in something about how awesome the app is.</p>
+        </Jumbotron>
+        <hr/>
+        <Form inline onSubmit={this.handleSubmit}>
+          <FormGroup controlId="youtuber" bsSize="lg">
+            <FormControl type="text" name="youtuber"  placeholder="Youtube Channel Id" onChange={this.handleChange}/>
+          </FormGroup>
+          <Button type="submit" bsSize="lg" onClick={this.handleSubmitd}>
+            Submit
+          </Button>
+        </Form>
+      </Row>
+      <Row className="results">
+        {displayResults}
+      </Row>
+    </Grid>
   )
   }
 }

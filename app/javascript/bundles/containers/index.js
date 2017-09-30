@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import YoutubeChannelTile from '../components/youtubeChannelTile.js'
+import { Jumbotron, Form, FormGroup,FormControl, ControlLabel, Button, Grid, Row } from 'react-bootstrap';
 
 class Index extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class Index extends Component {
     let value = event.target.value
     this.setState({[stateName]: value})
   }
+
   render() {
     let displayResults;
     if (this.state.results != null) {
@@ -53,19 +55,26 @@ class Index extends Component {
     }
 
   return (
-    <div className="index">
-      <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
-      <hr/>
-      <form id='main-seach-form' onSubmit={this.handleSubmit}> 
-        <input type='text'
-           name='youtuber'
-           placeholder="Enter Youtuber's Channel"
-           onChange={this.handleChange}
-         />
-        <input type='submit' value='Submit' />
-      </form>
-      {displayResults}
-    </div>
+    <Grid>
+      <Row className="index">
+        <Jumbotron>
+          <h1 className="title">LightHaus</h1>
+          <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
+        </Jumbotron>
+        <hr/>
+        <Form inline onSubmit={this.handleSubmit}>
+          <FormGroup controlId="youtuber" bsSize="lg">
+            <FormControl type="text" name="youtuber"  placeholder="Youtube Channel Id" onChange={this.handleChange}/>
+          </FormGroup>
+          <Button type="submit" bsSize="lg" onClick={this.handleSubmitd}>
+            Submit
+          </Button>
+        </Form>
+      </Row>
+      <Row className="results">
+        {displayResults}
+      </Row>
+    </Grid>
   )
   }
 }
