@@ -31,10 +31,10 @@ class UserProfile extends Component {
   return (
     <Grid>
       <Row className="user-profile">
-        <h1> Hi, {this.props.user.first_name} </h1>
+        <h1 className="greeting"> Hi, {this.props.user.first_name} </h1>
         <a className="btn btn-info" href="/users/edit">Edit Your Account</a>
 
-        <h1>Here is a list of your saved graphs</h1>
+        <h1 className="header">Here is a list of your saved graphs</h1>
         {savesFragment}
       </Row>
     </Grid>

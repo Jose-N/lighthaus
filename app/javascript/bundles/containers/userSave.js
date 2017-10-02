@@ -26,15 +26,16 @@ class UserSave extends Component {
   return (
     <Grid>
       <Row className="user-save">
-        <h1>{this.props.save.title}</h1>
-        <a className="btn btn-success"
-          onClick={this.open}
-        >
-          Edit
-        </a>
+        <div className="title">
+          <h1>{this.props.save.title}</h1>
+          <a className="btn btn-success"
+            onClick={this.open}
+          >
+            Edit
+          </a>
+        </div>
         <h4>Description: {this.props.save.description}</h4>
 
-        <p>WUBBA LUBBA DUBB</p>
         <TreeMap data={[this.props.save.words, this.props.save.word_count]} />
       </Row>
       <Modal show={this.state.showModal} onHide={this.close}>
