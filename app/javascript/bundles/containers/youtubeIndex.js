@@ -58,7 +58,7 @@ class YoutubeIndex extends Component {
       <Row className="index">
         <Jumbotron>
           <h1 className="title">Youtube</h1>
-          <p className="tagline">Some cool tag line about Youtube and how you can grab data from it. Maybe throw in something about how awesome the app is.</p>
+          <p className="tagline">Data is good and more data is better. Let us help you find out what it is that communities around Youtube personalities and channels like.</p>
         </Jumbotron>
         <hr/>
         <Form inline onSubmit={this.handleSubmit}>

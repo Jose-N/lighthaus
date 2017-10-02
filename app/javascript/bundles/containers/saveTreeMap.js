@@ -24,20 +24,23 @@ class SaveTreeMap extends Component {
 
   createPayload(event) {
     event.preventDefault()
-    let payload = {
-      title: this.state.title,
-      description: this.state.description,
-      words: this.state.chart_data[0],
-      word_count: this.state.chart_data[1]
+    let payload = { datum: {
+        title: this.state.title,
+        description: this.state.description,
+        words: this.state.chart_data[0],
+        word_count: this.state.chart_data[1]
+      }
     }
     this.handleSubmit(payload)
   }
 
   handleSubmit(payload) {
     event.preventDefault()
+    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
     fetch("/data",
       {
         method: "POST",
+        headers: header,
         credentials: "same-origin",
         body : JSON.stringify(payload),
       })
