@@ -59,7 +59,7 @@ class Index extends Component {
       <Row className="index">
         <Jumbotron>
           <h1 className="title">LightHaus</h1>
-          <p className="tagline">Some cool tag line about Big Data and how awesome it is. Maybe throw in something about how awesome the app is.</p>
+          <p className="tagline">Data is good and more data is better. Let us help you find out what it is that communities around internet personalities like.</p>
         </Jumbotron>
         <hr/>
         <Form inline onSubmit={this.handleSubmit}>

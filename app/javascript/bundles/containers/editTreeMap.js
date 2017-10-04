@@ -23,19 +23,22 @@ class EditTreeMap extends Component {
 
   createPayload(event) {
     event.preventDefault()
-    let payload = {
-      id: this.props.id,
-      title: this.state.title,
-      description: this.state.description
+    let payload = { datum: {
+        id: this.props.id,
+        title: this.state.title,
+        description: this.state.description
+      }
     }
     this.handleSubmit(payload)
   }
 
   handleSubmit(payload) {
     event.preventDefault()
+    let header = ReactOnRails.authenticityHeaders({'Accept': 'application/json','Content-Type': 'application/json'});
     fetch(`/data/${this.props.id}`,
       {
-        method: "PUT",
+        method: "PATCH",
+        headers: header,
         credentials: "same-origin",
         body : JSON.stringify(payload),
       })

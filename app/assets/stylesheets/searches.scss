@@ -1,3 +1,131 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html{
+  body{
+    background-color: #012D41;
+    hr{
+      border-color: #FF404E;
+    }
+    h1{
+      color: white;
+    }
+    h3{
+      color: white;
+    }
+    p{
+      color: white;
+    }
+    h4{
+      color: #FF404E;
+    }
+  }
+}
+
+.jumbotron{
+  background-color: #012D41 !important;
+  color: white !important;
+  text-align: center;
+  .title{
+    margin-bottom: 50px;
+  }
+}
+
+.form-inline{
+  text-align: center;
+  .form-group {
+    margin: 10px;
+    margin-right: 15px;
+  }
+  .btn{
+    margin-top: 12px;
+    margin-left: 15px;
+  }
+}
+
+
+.youtube-channel-tile{
+  margin-top: 20px;
+  padding: 15px;
+  border: solid #FF404E 2px;
+  .title-box{
+    color: white;
+    text-align: center;
+    img{
+      float: left;
+      margin-bottom: 10px;
+    }
+  }
+  .info-box{
+    clear: both;
+    margin: 10px;
+    color: white;
+  }
+}
+
+.page-header{
+  border-color: #FF404E !important;
+}
+
+.youtube-video-tile{
+  border: solid #FF404E 2px;
+  margin: 25px;
+  padding: 10px;
+  img{
+    margin: 5px;
+    float: right;
+  }
+}
+
+.youtube-video-statistics-tile{
+  border: solid #FF404E 2px;
+  padding: 10px;
+}
+
+.user-profile{
+  .greeting{
+    float: left;
+  }
+  .btn{
+    float: right;
+    margin-top: 10px;
+  }
+  .header{
+    margin-top: 50px;
+    clear: both;
+  }
+  .panel{
+    clear: both;
+    background-color: #1CA5B8; 
+    border: solid #FF404E 2px;
+    text-align: center;
+    a{
+      color: white;
+    }
+  }
+}
+
+.user-save{
+  text-align: center;
+  h1{
+    float: left;
+    text-align: right;
+    margin-left: 35%;
+  }
+  .btn{
+    float: right;
+  }
+  h4{
+    clear: both;
+  }
+}
+
+.modal-content{
+  background-color: #012D41 !important;
+  border: solid #FF404E 2px !important;
+  color: white;
+  .modal-header{
+    text-align: center;
+  }
+}

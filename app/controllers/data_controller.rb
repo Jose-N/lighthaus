@@ -12,34 +12,22 @@ class DataController < ApplicationController
   end
 
   def create
-    data = JSON.parse(request.body.read)
-
-    new_save = Datum.create(
-      title: data["title"],
-      description: data["description"],
-      words: data["words"],
-      word_count: data["word_count"]
-    )
-
-    if new_save.save
-      UserDatum.create(
-        user_id: current_user.id,
-        datum_id: new_save.id
-      )
-      render json: new_save,
-      notice: "Data was successfully saved"
+    @save = Datum.create(save_params)
+    respond_to do |format|
+      if @save.save
+        UserDatum.create(user_id: current_user.id, datum_id: @save.id)
+        format.json { render json: @save }
+        format.html { redirect_to data_path, notice: "Save added successfully!"}
+      end
     end
   end
 
-  def edit
-  end
-
   def update
-    data = JSON.parse(request.body.read)
-    save = Datum.find(data["id"])
-
-    save.update( title: data["title"], description: data["description"])
-    render json: save
+    @save = Datum.find(params[:id])
+    @save.update_attributes(edit_params)
+    if @save.save
+      redirect_to datum_path(@save), notice: "Save updated successfully!"
+    end
   end
 
   def destroy
@@ -48,4 +36,13 @@ class DataController < ApplicationController
 
     redirect_to data_path
   end
+
+  private
+    def save_params
+      params.require(:datum).permit(:title, :description, :id, :words => [], :word_count => [])
+    end
+
+    def edit_params
+      params.require(:datum).permit(:title, :description, :id)
+    end
 end

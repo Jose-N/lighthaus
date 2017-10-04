@@ -13,8 +13,8 @@ const NavBar = props => {
       <Navbar.Collapse>
         <Nav>
           <li role="presentation"><a href="/youtube">Youtube</a></li>
-          <li role="presentation"><a href="/twitch">Twitch</a></li>
-          <li role="presentation"><a href="/twitter">Twitter</a></li>
+          <li role="presentation"><a href="#">Twitch</a></li>
+          <li role="presentation"><a href="#">Twitter</a></li>
         </Nav>
         <Nav pullRight>
           {props.signed_in ?(
