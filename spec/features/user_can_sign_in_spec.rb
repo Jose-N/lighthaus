@@ -50,4 +50,21 @@ feature "user can sign in" do
    expect(page).to have_content("Password confirmation doesn't match Password")
    expect(page).to have_content("Password is too short (minimum is 6 characters)")
   end
+
+  scenario "user tries to sign up with email thats already registered" do
+    user = FactoryGirl.create(:user)
+
+   visit '/' 
+   click_link 'Register'
+
+   fill_in 'Email', with: 'jose@jose.com'
+   fill_in 'First name', with: 'Jose'
+   fill_in 'Last name', with: 'Naylor'
+   fill_in 'Password', with: 'josejose'
+   fill_in 'Password confirmation', with: 'josejose'
+
+   click_button 'Sign up'
+
+   expect(page).to have_content("Email has already been taken")
+  end
 end
