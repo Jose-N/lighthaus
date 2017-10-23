@@ -31,6 +31,13 @@ RSpec.configure do |config|
   # This will use the defaults of :js and :server_rendering meta tags
   ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
 
+  config.include Capybara::DSL
+  config.include Warden::Test::Helpers
+
+  config.after :each do
+    Warden.test_reset!
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
