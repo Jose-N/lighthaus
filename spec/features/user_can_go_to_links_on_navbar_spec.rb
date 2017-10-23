@@ -48,9 +48,5 @@ feature "user can use navbar" do
     click_link 'Jose'
 
     expect(page).to have_content("Hi, Jose")
-
-    click_link 'Logout'
-
-    expect(page).to have_content("Successfully signed out")
   end
 end
